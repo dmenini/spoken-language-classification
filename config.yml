@@ -1,0 +1,28 @@
+output_dir: './workspace'
+num_workers: 4
+MODEL:
+  pretrained_encoder_path: 'models/huggingface/s2t-medium-mustc-multilingual-st'
+  conv_filters: [64, 32]
+  classifier_hidden_states: 384
+  classifier_dropout: 0.5
+  export_to_onnx: True
+TRAINING:
+  batch_size: 32
+  shuffle: True
+  n_epochs: 15
+  learning_rate: 0.001
+  monitored_metric: 'F1'
+  resume: False
+  checkpoint_path:
+TESTING:
+  batch_size: 8
+  shuffle: False
+  model_path: 'models/spoken-language-classifier-50/best.onnx'
+  onnx_runtime: True
+DATA:
+  data_dir: 'data'
+  languages: ['gsw', 'en', 'it', 'fr', 'de']
+  feature_size: 80  # defined by pretrained transformer
+  sampling_rate: 16_000   # defined by pretrained transformer
+  trim_length: 100_000
+  dataset_split_ratio: 0.7

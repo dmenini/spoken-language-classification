@@ -1,0 +1,30 @@
+# JetBrains IDEs
+.idea/
+venv/
+data/
+demo_data/
+workspace/
+models/
+
+# Visual Studio Code IDE
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+build/
+dist/
+*.egg-info/
+.eggs/
+
+.tox/
+
+*.pth.tar
+
+
+# coverage.py
+.coverage
+/htmlcov/
+
+.pytest_cache/
+.DS_Store
